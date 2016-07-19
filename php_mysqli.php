@@ -22,3 +22,23 @@ var_dump($res);
 
 //关闭链接
 $mysqli->close();
+
+
+//sql语句更新语句
+$sql = "UPDATE user SET age=10";
+//sql删除语句
+$sql = "DELETE user WHERER age=10";
+
+//输出有多少条语句被影响
+ //输出-1语句有有问题
+$mysqli->affected_rows; 
+
+//查询数据
+$sql = "SELECT id,username,age FROM user";
+$res = $mysqli->query($sql);
+if($res && $mysqli_result->num_rows>0){
+  $rows = $res->fetch_all();
+}else{
+  echo'error';
+}
+
